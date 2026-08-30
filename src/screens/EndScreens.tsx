@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Trophy, Skull, Crown, RotateCcw, Gavel, ShieldCheck, AlertTriangle, UserPlus, Users, ChevronRight } from 'lucide-react';
+import { Trophy, Skull, Crown, RotateCcw, Gavel, ShieldCheck, TriangleAlert as AlertTriangle, UserPlus, Users, ChevronRight } from 'lucide-react';
 import { PrimaryButton, GhostButton, ScreenShell, Pill, CoinAmount, PlayerName } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { GameState, AccusationVerdict, MAX_ROUNDS, MAX_PLAYERS } from '@/game/engine';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Eye, EyeOff, ArrowRight, Users, MessageCircle, ChevronRight, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Eye, EyeOff, ArrowRight, Users, MessageCircle, ChevronRight, TriangleAlert as AlertTriangle, CircleCheck as CheckCircle2 } from 'lucide-react';
 import { PrimaryButton, ScreenShell, Pill, CoinAmount, PlayerName } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { GameState, Player, RoundOutcome, MAX_ROUNDS } from '@/game/engine';
