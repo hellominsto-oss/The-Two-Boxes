@@ -147,6 +147,42 @@ export interface Dict {
   onlyOneRemained: string;
   playAgain: string;
 
+  // How to Play
+  howToPlay: string;
+  howToPlayTitle: string;
+  howToPlayBack: string;
+  howToPlayGoal: string;
+  howToPlayGoalText: string;
+  howToPlayStarting: string;
+  howToPlayStartingText: string;
+  howToPlayTwoBoxes: string;
+  howToPlaySavingsLabel: string;
+  howToPlaySavingsText: string;
+  howToPlaySafetyLabel: string;
+  howToPlaySafetyText: string;
+  howToPlayDistributeText: string;
+  howToPlayMinDeposit: string;
+  howToPlayMinDepositText: string;
+  howToPlayPrivateInfo: string;
+  howToPlayPrivateInfoText: string;
+  howToPlayAccusations: string;
+  howToPlayAccusationsText: string;
+  howToPlayCorrectAccusation: string;
+  howToPlayCorrectAccusationText: string;
+  howToPlayWrongAccusation: string;
+  howToPlayWrongAccusationText: string;
+  howToPlayCoinEconomy: string;
+  howToPlayCoinEconomyText: string;
+  howToPlayCoinEconomyNewPlayer: string;
+  howToPlayElimination: string;
+  howToPlayEliminationText: string;
+  howToPlayAddingPlayers: string;
+  howToPlayAddingPlayersText: string;
+  howToPlayTwoPlayersRemain: string;
+  howToPlayTwoPlayersRemainText: string;
+  howToPlayWinning: string;
+  howToPlayWinningText: string;
+
   // NEW label
   newLabel: string;
 }
@@ -294,6 +330,54 @@ const en: Dict = {
   onlyOneRemained: 'Only one player remained — the game ended early.',
   playAgain: 'Play Again',
 
+  howToPlay: 'How to Play',
+  howToPlayTitle: 'How to Play',
+  howToPlayBack: 'Back',
+  howToPlayGoal: 'The Goal',
+  howToPlayGoalText:
+    'Players try to survive the game and finish with the highest number of coins.',
+  howToPlayStarting: 'Starting the Game',
+  howToPlayStartingText: 'Each player starts with 100 coins.',
+  howToPlayTwoBoxes: 'The Two Boxes',
+  howToPlaySavingsLabel: 'Savings',
+  howToPlaySavingsText:
+    'Coins placed here are pooled with everyone else\'s savings and split equally among all active players at the end of the round.',
+  howToPlaySafetyLabel: 'Safety',
+  howToPlaySafetyText: 'Coins placed here stay with you and are returned to your balance.',
+  howToPlayDistributeText:
+    'Each round you distribute all of your coins between these two boxes according to the current Minimum Deposit requirement.',
+  howToPlayMinDeposit: 'Minimum Deposit',
+  howToPlayMinDepositText:
+    'Every round has a randomly determined Minimum Deposit. Players must satisfy that requirement by placing the required amount of coins into the boxes.',
+  howToPlayPrivateInfo: 'Private Information',
+  howToPlayPrivateInfoText:
+    'Players should keep their personal balances and deposits private. Other players do not automatically know exactly how many coins you have.',
+  howToPlayAccusations: 'Accusations',
+  howToPlayAccusationsText:
+    'Players may accuse another player if they believe that player violated the round\'s Minimum Deposit requirement. Each round has an Accusation Cost, randomly determined between 10 and 30 coins, which changes every round.',
+  howToPlayCorrectAccusation: 'Correct Accusation',
+  howToPlayCorrectAccusationText:
+    'If the accused player is confirmed guilty: the accuser receives 2 × the Accusation Cost, paid from the accused player\'s existing coins. The accused player is eliminated, and all coins remaining with them after the rewards are distributed equally among all remaining active players, including the successful accuser.',
+  howToPlayWrongAccusation: 'Wrong Accusation',
+  howToPlayWrongAccusationText:
+    'If the accused player is confirmed innocent: the accuser loses the Accusation Cost, and those coins are transferred to the falsely accused player.',
+  howToPlayCoinEconomy: 'Coin Economy',
+  howToPlayCoinEconomyText:
+    'Coins are never created or destroyed during normal game actions. Coins only move between players.',
+  howToPlayCoinEconomyNewPlayer:
+    'The only exception is when a new player joins the game: a newly added player enters with 100 coins, adding exactly 100 coins to the total economy of the current game.',
+  howToPlayElimination: 'Elimination',
+  howToPlayEliminationText:
+    'A player who is successfully accused is eliminated and cannot rejoin the same game using the same name.',
+  howToPlayAddingPlayers: 'Adding Players',
+  howToPlayAddingPlayersText:
+    'A new player can be added between rounds whenever there are fewer than 8 active players. A newly added player starts with 100 coins and begins playing from the next round.',
+  howToPlayTwoPlayersRemain: 'Two Players Remaining',
+  howToPlayTwoPlayersRemainText:
+    'If only two active players remain after a round, the game pauses and the players can either add a player or end the game. If they add a player, the new player joins before the next round.',
+  howToPlayWinning: 'Winning',
+  howToPlayWinningText: 'If the game is ended, the player with the highest coin balance wins.',
+
   newLabel: 'NEW',
 };
 
@@ -438,6 +522,53 @@ const ar: Dict = {
   eliminatedInRound: (n) => `استبعد في الجولة ${n}`,
   onlyOneRemained: 'لم يتبقَّ سوى لاعب واحد — انتهت اللعبة مبكرًا.',
   playAgain: 'العب مجددًا',
+
+  howToPlay: 'كيفية اللعب',
+  howToPlayTitle: 'كيفية اللعب',
+  howToPlayBack: 'رجوع',
+  howToPlayGoal: 'الهدف',
+  howToPlayGoalText: 'يحاول اللاعبون البقاء في اللعبة وإنهاؤها بأعلى عدد من العملات.',
+  howToPlayStarting: 'بدء اللعبة',
+  howToPlayStartingText: 'يبدأ كل لاعب بـ ١٠٠ عملة.',
+  howToPlayTwoBoxes: 'الصندوقان',
+  howToPlaySavingsLabel: 'الحصالة',
+  howToPlaySavingsText:
+    'تُجمّع العملات الموضوعة هنا مع حصالة بقية اللاعبين وتُقسّم بالتساوي بين جميع اللاعبين النشطين في نهاية الجولة.',
+  howToPlaySafetyLabel: 'الأمان',
+  howToPlaySafetyText: 'تبقى العملات الموضوعة هنا معك وتُعاد إلى رصيدك.',
+  howToPlayDistributeText:
+    'في كل جولة توزّع كل عملاتك بين هذين الصندوقين وفقًا لمتطلبات الحد الأدنى للإيداع الحالية.',
+  howToPlayMinDeposit: 'الحد الأدنى للإيداع',
+  howToPlayMinDepositText:
+    'لكل جولة حد أدنى للإيداع يُحدَّد عشوائيًا. يجب على اللاعبين تلبية هذا المتطلب بوضع الكمية المطلوبة من العملات في الصندوقين.',
+  howToPlayPrivateInfo: 'المعلومات الخاصة',
+  howToPlayPrivateInfoText:
+    'يجب على اللاعبين إبقاء أرصدتهم الشخصية وإيداعاتهم سرّية. لا يعرف بقية اللاعبين تلقائيًا عدد العملات التي يملكونها.',
+  howToPlayAccusations: 'الاتهامات',
+  howToPlayAccusationsText:
+    'يجوز للاعبين اتهام لاعب آخر إذا اعتقدوا أنه انتهك متطلبات الحد الأدنى للإيداع في الجولة. لكل جولة تكلفة اتهام تُحدَّد عشوائيًا بين ١٠ و٣٠ عملة، وتتغير في كل جولة.',
+  howToPlayCorrectAccusation: 'الاتهام الصحيح',
+  howToPlayCorrectAccusationText:
+    'إذا تبيّن أن اللاعب المتهم مذنب: يستلم المتهم ٢ × تكلفة الاتهام، تُدفع من عملات اللاعب المتهم الموجودة. يُستبعد اللاعب المتهم، وتُوزّع كل العملات المتبقية معه بعد المكافآت بالتساوي بين جميع اللاعبين النشطين المتبقين، بمن فيهم المتهم الناجح.',
+  howToPlayWrongAccusation: 'الاتهام الخاطئ',
+  howToPlayWrongAccusationText:
+    'إذا تبيّن أن اللاعب المتهم بريء: يخسر المتهم تكلفة الاتهام، وتُنقل تلك العملات إلى اللاعب المتهم زورًا.',
+  howToPlayCoinEconomy: 'اقتصاد العملات',
+  howToPlayCoinEconomyText:
+    'لا تُخلق العملات ولا تُتلف أثناء الإجراءات العادية للعبة. تنتقل العملات بين اللاعبين فقط.',
+  howToPlayCoinEconomyNewPlayer:
+    'الاستثناء الوحيد هو عند انضمام لاعب جديد: يدخل اللاعب المضاف حديثًا بـ ١٠٠ عملة، مما يضيف ١٠٠ عملة بالضبط إلى الاقتصاد الكلي للعبة الحالية.',
+  howToPlayElimination: 'الاستبعاد',
+  howToPlayEliminationText:
+    'اللاعب الذي يُتّهم بنجاح يُستبعد ولا يمكنه إعادة الانضمام إلى نفس اللعبة باستخدام نفس الاسم.',
+  howToPlayAddingPlayers: 'إضافة اللاعبين',
+  howToPlayAddingPlayersText:
+    'يمكن إضافة لاعب جديد بين الجولات عندما يكون عدد اللاعبين النشطين أقل من ٨. يبدأ اللاعب المضاف حديثًا بـ ١٠٠ عملة ويبدأ اللعب من الجولة التالية.',
+  howToPlayTwoPlayersRemain: 'بقاء لاعبين اثنين',
+  howToPlayTwoPlayersRemainText:
+    'إذا لم يتبقَّ سوى لاعبين نشطين بعد جولة، تتوقف اللعبة ويمكن للاعبين إما إضافة لاعب أو إنهاء اللعبة. إذا أضافوا لاعبًا، ينضم اللاعب الجديد قبل الجولة التالية.',
+  howToPlayWinning: 'الفوز',
+  howToPlayWinningText: 'إذا أُنهيت اللعبة، يفوز اللاعب صاحب أعلى رصيد من العملات.',
 
   newLabel: 'جديد',
 };

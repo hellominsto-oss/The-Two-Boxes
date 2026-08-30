@@ -28,16 +28,18 @@ export function GhostButton({
   children,
   onClick,
   disabled,
+  className = '',
 }: {
   children: ReactNode;
   onClick?: () => void;
   disabled?: boolean;
+  className?: string;
 }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-full rounded-2xl border border-slate-700 px-6 py-4 text-base font-medium text-slate-300 transition active:scale-[0.98] enabled:hover:border-slate-500 enabled:hover:text-white disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-600"
+      className={`w-full rounded-2xl border border-slate-700 px-6 py-4 text-base font-medium text-slate-300 transition active:scale-[0.98] enabled:hover:border-slate-500 enabled:hover:text-white disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-600 ${className}`}
     >
       {children}
     </button>

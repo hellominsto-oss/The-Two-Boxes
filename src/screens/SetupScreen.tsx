@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Coins, Users, Plus, Minus, ChevronRight } from 'lucide-react';
-import { PrimaryButton, ScreenShell } from '@/components/ui';
+import { Coins, Users, Plus, Minus, ChevronRight, CircleHelp as HelpCircle } from 'lucide-react';
+import { PrimaryButton, GhostButton, ScreenShell } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { STARTING_COINS, Player } from '@/game/engine';
+import { HowToPlayScreen } from '@/screens/HowToPlayScreen';
 
 const DEFAULT_NAMES = [
   'Player 1',
@@ -35,9 +36,14 @@ export function SetupScreen({
   const defaults = lang === 'ar' ? DEFAULT_NAMES_AR : DEFAULT_NAMES;
   const [count, setCount] = useState(3);
   const [names, setNames] = useState<string[]>(DEFAULT_NAMES);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
 
   const setName = (i: number, v: string) =>
     setNames((prev) => prev.map((n, idx) => (idx === i ? v : n)));
+
+  if (showHowToPlay) {
+    return <HowToPlayScreen onBack={() => setShowHowToPlay(false)} />;
+  }
 
   const start = () => {
     const players: Player[] = Array.from({ length: count }, (_, i) => ({
@@ -111,11 +117,14 @@ export function SetupScreen({
         {t.setupBlurb(STARTING_COINS)}
       </div>
 
-      <div className="mt-auto pt-6">
+      <div className="mt-auto space-y-3 pt-6">
         <PrimaryButton onClick={start} className="flex items-center justify-center gap-2">
           {t.startGame}
           <ChevronRight className="h-5 w-5" />
         </PrimaryButton>
+        <GhostButton onClick={() => setShowHowToPlay(true)} className="flex items-center justify-center gap-2">
+          <HelpCircle className="h-5 w-5" /> {t.howToPlay}
+        </GhostButton>
       </div>
     </ScreenShell>
   );
