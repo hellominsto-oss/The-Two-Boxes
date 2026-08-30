@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: 'Manrope', 'IBM Plex Sans Arabic', sans-serif;
+}
+
+html[dir='rtl'] {
+  font-family: 'IBM Plex Sans Arabic', 'Manrope', sans-serif;
+}
+
+body {
+  background-color: #070A12;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', 'Noto Naskh Arabic', serif;
+}
+
+html[dir='rtl'] .font-display {
+  font-family: 'Noto Naskh Arabic', 'Cormorant Garamond', serif;
+}
+
+input[type='range'] {
+  accent-color: #C99A3D;
+}

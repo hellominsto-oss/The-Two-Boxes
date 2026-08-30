@@ -40,19 +40,19 @@ export function AccusationScreen({
         <CoinAmount amount={player.balance} className="text-base" />
       </div>
 
-      <h1 className="text-2xl font-bold text-white">
+      <h1 className="font-display text-2xl font-bold text-white">
         <PlayerName name={player.name} joinedMidGame={player.joinedMidGame} />
       </h1>
       <p className="mt-1 text-sm text-slate-400">{t.accuseQuestion}</p>
 
-      <div className="mt-4 rounded-2xl bg-amber-500/10 p-4 ring-1 ring-amber-700/30">
+      <div className="mt-4 rounded-2xl bg-warning/10 p-4 ring-1 ring-warning/30 shadow-panel">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/20 ring-1 ring-amber-600/40">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-warning/15 ring-1 ring-warning/40">
             <Coin face="deception" className="h-8 w-8" />
           </div>
           <div className="flex-1">
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-amber-300/80">{t.accusationCostLabel}</div>
-            <div className="text-2xl font-bold tabular-nums text-amber-300">{cost}</div>
+            <div className="text-[11px] font-semibold uppercase tracking-wide text-warning/90">{t.accusationCostLabel}</div>
+            <div className="font-display text-2xl font-bold tabular-nums text-warning">{cost}</div>
           </div>
         </div>
         <p className="mt-2 text-[11px] leading-relaxed text-slate-400">{t.accusationCostExplain}</p>
@@ -64,10 +64,10 @@ export function AccusationScreen({
             setAccusing(false);
             setTargetId(null);
           }}
-          className={`rounded-2xl px-4 py-4 text-sm font-semibold ring-1 transition ${
+          className={`rounded-xl px-4 py-4 text-sm font-semibold ring-1 transition ${
             !accusing
-              ? 'bg-emerald-600/20 text-emerald-200 ring-emerald-600/50'
-              : 'bg-slate-900/50 text-slate-400 ring-slate-800'
+              ? 'bg-success/15 text-success ring-success/40'
+              : 'bg-ink-900/50 text-slate-400 ring-ink-700'
           }`}
         >
           <ShieldX className="mx-auto mb-1 h-5 w-5" /> {t.noAccusation}
@@ -75,10 +75,10 @@ export function AccusationScreen({
         <button
           onClick={() => setAccusing(true)}
           disabled={others.length === 0 || !canAfford}
-          className={`rounded-2xl px-4 py-4 text-sm font-semibold ring-1 transition disabled:opacity-40 ${
+          className={`rounded-xl px-4 py-4 text-sm font-semibold ring-1 transition disabled:opacity-40 ${
             accusing
-              ? 'bg-rose-600/20 text-rose-200 ring-rose-600/50'
-              : 'bg-slate-900/50 text-slate-400 ring-slate-800'
+              ? 'bg-danger/15 text-danger ring-danger/40'
+              : 'bg-ink-900/50 text-slate-400 ring-ink-700'
           }`}
         >
           <Gavel className="mx-auto mb-1 h-5 w-5" /> {t.accusePlayer}
@@ -86,7 +86,7 @@ export function AccusationScreen({
       </div>
 
       {accusing && !canAfford && (
-        <p className="mt-3 text-center text-xs text-rose-400">{t.cannotAffordAccusation}</p>
+        <p className="mt-3 text-center text-xs text-danger">{t.cannotAffordAccusation}</p>
       )}
 
       {accusing && canAfford && (
@@ -98,10 +98,10 @@ export function AccusationScreen({
                 <button
                   key={p.id}
                   onClick={() => setTargetId(p.id)}
-                  className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-medium ring-1 transition ${
+                  className={`flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium ring-1 transition ${
                     targetId === p.id
-                      ? 'bg-rose-600/20 text-rose-100 ring-rose-600/50'
-                      : 'bg-slate-900/50 text-slate-300 ring-slate-800'
+                      ? 'bg-danger/15 text-danger ring-danger/40'
+                      : 'bg-ink-900/50 text-slate-300 ring-ink-700'
                   }`}
                 >
                   <UserX className="h-4 w-4" />
@@ -112,15 +112,15 @@ export function AccusationScreen({
           </div>
 
           {targetId !== null && (
-            <div className="rounded-2xl bg-slate-900/60 p-4 ring-1 ring-slate-800">
+            <div className="rounded-2xl bg-ink-900 p-4 ring-1 ring-ink-700 shadow-panel">
               <div className="mb-2 flex items-center justify-between text-xs text-slate-400">
                 <span>{t.coinsToRisk}</span>
-                <span className="font-semibold tabular-nums text-rose-300">{cost}</span>
+                <span className="font-semibold tabular-nums text-danger">{cost}</span>
               </div>
               <div className="mb-3 text-xs text-slate-500">
                 {t.riskedAgainst(state.players.find((p) => p.id === targetId)?.name ?? '')}
               </div>
-              <div className="rounded-lg bg-rose-500/10 px-3 py-2 text-[11px] leading-relaxed text-rose-300/90">
+              <div className="rounded-lg bg-danger/10 px-3 py-2 text-[11px] leading-relaxed text-danger/90">
                 {t.accusationRuleText(state.players.find((p) => p.id === targetId)?.name ?? '', cost, reward)}
               </div>
             </div>

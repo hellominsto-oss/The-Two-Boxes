@@ -45,14 +45,14 @@ export function PrivateTurnScreen({
         </Pill>
       </div>
 
-      <div className="mb-5 rounded-2xl bg-slate-900/60 p-4 ring-1 ring-slate-800">
+      <div className="mb-5 rounded-2xl bg-ink-900 p-4 ring-1 ring-ink-700 shadow-panel">
         <div className="flex items-center justify-between">
           <span className="text-xs uppercase tracking-wide text-slate-500">{t.yourBalance}</span>
           <CoinAmount amount={total} className="text-xl" />
         </div>
-        <div className="mt-3 flex items-center justify-between border-t border-slate-800 pt-3">
+        <div className="mt-3 flex items-center justify-between border-t border-ink-700 pt-3">
           <span className="text-xs uppercase tracking-wide text-slate-500">{t.requiredMinSavingsShort}</span>
-          <span className="font-mono font-semibold text-amber-300">{state.minimum}</span>
+          <span className="font-mono font-semibold text-gold-light">{state.minimum}</span>
         </div>
       </div>
 
@@ -76,7 +76,7 @@ export function PrivateTurnScreen({
         amount={safety}
       />
 
-      <div className="mt-5 rounded-2xl bg-slate-900/60 p-4 ring-1 ring-slate-800">
+      <div className="mt-5 rounded-2xl bg-ink-900 p-4 ring-1 ring-ink-700 shadow-panel">
         <div className="mb-3 flex items-center justify-between text-xs text-slate-400">
           <span>{t.zeroSavings}</span>
           <span>{t.maxSavings(total)}</span>
@@ -87,14 +87,14 @@ export function PrivateTurnScreen({
           max={total}
           value={savings}
           onChange={(e) => setSafeAmount(Number(e.target.value))}
-          className="w-full accent-emerald-500"
+          className="w-full accent-gold"
         />
         <div className="mt-3 flex flex-wrap gap-2">
           {presets.map((v, i) => (
             <button
               key={i}
               onClick={() => setSafeAmount(v)}
-              className="rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:bg-slate-700"
+              className="rounded-lg bg-ink-800 px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:bg-ink-700"
             >
               {v}/{total - v}
             </button>
@@ -107,18 +107,18 @@ export function PrivateTurnScreen({
             max={total}
             value={savings}
             onChange={(e) => setSafeAmount(Number(e.target.value))}
-            className="w-24 rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white focus:border-emerald-600 focus:outline-none"
+            className="w-24 rounded-lg border border-ink-700 bg-ink-950/60 px-3 py-2 text-sm text-white focus:border-gold focus:outline-none"
           />
           <span className="text-xs text-slate-500">{t.coinsIntoSavings}</span>
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-950/60 px-4 py-3 ring-1 ring-slate-800">
+      <div className="mt-4 flex items-center justify-between rounded-xl bg-ink-950/60 px-4 py-3 ring-1 ring-ink-700">
         <span className="flex items-center gap-2 text-xs text-slate-400">
           <Coin face="wealth" className="h-4 w-4" /> {t.remainingToPlace}
         </span>
         <span
-          className={`font-mono text-lg font-bold tabular-nums ${leftover === 0 ? 'text-emerald-400' : 'text-rose-400'}`}
+          className={`font-mono text-lg font-bold tabular-nums ${leftover === 0 ? 'text-success' : 'text-danger'}`}
         >
           {leftover}
         </span>
@@ -155,15 +155,15 @@ function BoxCard({
   minimum?: number;
 }) {
   const tones = {
-    emerald: 'bg-emerald-500/10 ring-emerald-700/40 text-emerald-300',
-    sky: 'bg-sky-500/10 ring-sky-700/40 text-sky-300',
+    emerald: 'bg-success/10 ring-success/30 text-success',
+    sky: 'bg-gold/10 ring-gold/30 text-gold-light',
   };
   const iconTones = {
-    emerald: 'text-emerald-400',
-    sky: 'text-sky-400',
+    emerald: 'text-success',
+    sky: 'text-gold-light',
   };
   return (
-    <div className={`mt-3 rounded-2xl p-4 ring-1 ${tones[tone]}`}>
+    <div className={`mt-3 rounded-xl p-4 ring-1 ${tones[tone]}`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className={iconTones[tone]}>{icon}</span>

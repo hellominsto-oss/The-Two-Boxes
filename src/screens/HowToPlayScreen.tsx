@@ -22,8 +22,8 @@ export function HowToPlayScreen({ onBack }: { onBack: () => void }) {
   return (
     <ScreenShell>
       <div className="mb-5 mt-2 text-center">
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-500/15 ring-1 ring-sky-600/40">
-          <Trophy className="h-8 w-8 text-sky-400" />
+        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/30">
+          <Trophy className="h-8 w-8 text-gold-light" />
         </div>
         <Pill tone="neutral">{t.howToPlayTitle}</Pill>
       </div>
@@ -112,19 +112,19 @@ function Section({
   children: React.ReactNode;
 }) {
   const tones = {
-    amber: 'bg-amber-500/10 ring-amber-700/30 text-amber-400',
-    emerald: 'bg-emerald-500/10 ring-emerald-700/30 text-emerald-400',
-    sky: 'bg-sky-500/10 ring-sky-700/30 text-sky-400',
-    rose: 'bg-rose-500/10 ring-rose-700/30 text-rose-400',
-    slate: 'bg-slate-500/10 ring-slate-700/30 text-slate-400',
+    amber: 'bg-gold/10 ring-gold/30 text-gold-light',
+    emerald: 'bg-success/10 ring-success/30 text-success',
+    sky: 'bg-gold/10 ring-gold/30 text-gold-light',
+    rose: 'bg-danger/10 ring-danger/30 text-danger',
+    slate: 'bg-ink-700/40 ring-ink-700 text-slate-400',
   };
   return (
-    <div className="rounded-2xl bg-slate-900/60 p-4 ring-1 ring-slate-800">
+    <div className="rounded-xl bg-ink-900 p-4 ring-1 ring-ink-700 shadow-panel">
       <div className="mb-2 flex items-center gap-2.5">
-        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ring-1 ${tones[tone]}`}>
+        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ring-1 ${tones[tone]}`}>
           {icon}
         </span>
-        <h2 className="text-sm font-bold text-white">{title}</h2>
+        <h2 className="font-display text-base font-bold text-white">{title}</h2>
       </div>
       <div className="text-xs leading-relaxed text-slate-300">{children}</div>
     </div>
@@ -143,11 +143,11 @@ function SubItem({
   children: React.ReactNode;
 }) {
   const tones = {
-    emerald: 'text-emerald-400',
-    sky: 'text-sky-400',
+    emerald: 'text-success',
+    sky: 'text-gold-light',
   };
   return (
-    <div className="flex items-start gap-2 rounded-xl bg-slate-950/40 px-3 py-2.5 ring-1 ring-slate-800">
+    <div className="flex items-start gap-2 rounded-lg bg-ink-950/40 px-3 py-2.5 ring-1 ring-ink-700">
       <span className={`mt-0.5 shrink-0 ${tones[tone]}`}>{icon}</span>
       <div className="text-xs leading-relaxed text-slate-300">
         <span className="font-semibold text-white">{label}: </span>

@@ -25,14 +25,14 @@ export function PrivateStatementScreen({
         {!revealed ? <Pill tone="warn">{t.hidden}</Pill> : <Pill tone="good">{t.yourEyesOnly}</Pill>}
       </div>
 
-      <h1 className="text-2xl font-bold text-white">
+      <h1 className="font-display text-2xl font-bold text-white">
         <PlayerName name={player.name} joinedMidGame={player.joinedMidGame} />
       </h1>
       <p className="mt-1 text-sm text-slate-400">{t.privateStatementNote}</p>
 
       {!revealed ? (
         <div className="mt-8 flex flex-1 flex-col items-center justify-center text-center">
-          <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-900 ring-1 ring-slate-700">
+          <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-ink-900 ring-1 ring-ink-700 shadow-panel">
             <EyeOff className="h-9 w-9 text-slate-500" />
           </div>
           <p className="max-w-xs text-sm text-slate-400">{t.privateStatementNote}</p>
@@ -49,8 +49,8 @@ export function PrivateStatementScreen({
             <Row label={t.savingsContribution} value={outcome.savings} tone="emerald" />
             <Row label={t.safetyContribution} value={outcome.safety} tone="sky" />
             <Row label={t.savingsShare} value={outcome.savingsShare} tone="emerald" />
-            <div className="my-2 h-px w-full bg-slate-800" />
-            <div className="flex items-center justify-between rounded-2xl bg-slate-900/70 px-4 py-4 ring-1 ring-slate-700">
+            <div className="my-2 h-px w-full bg-ink-700" />
+            <div className="flex items-center justify-between rounded-xl bg-ink-900 px-4 py-4 ring-1 ring-ink-700 shadow-panel">
               <span className="text-sm font-semibold text-white">{t.newBalance}</span>
               <CoinAmount amount={outcome.resultingBalance} className="text-2xl" />
             </div>
@@ -88,9 +88,9 @@ function Row({
   value: number;
   tone?: 'emerald' | 'sky';
 }) {
-  const color = tone === 'emerald' ? 'text-emerald-300' : tone === 'sky' ? 'text-sky-300' : 'text-slate-200';
+  const color = tone === 'emerald' ? 'text-success' : tone === 'sky' ? 'text-gold-light' : 'text-slate-200';
   return (
-    <div className="flex items-center justify-between rounded-xl bg-slate-900/50 px-4 py-3 ring-1 ring-slate-800">
+    <div className="flex items-center justify-between rounded-lg bg-ink-900/50 px-4 py-3 ring-1 ring-ink-700">
       <span className="text-sm text-slate-400">{label}</span>
       <span className={`font-mono text-lg font-semibold tabular-nums ${color}`}>{value}</span>
     </div>
@@ -113,18 +113,18 @@ export function PublicAnnouncementScreen({
       </div>
 
       <div
-        className={`rounded-3xl p-7 text-center ring-1 ${
-          met ? 'bg-emerald-500/10 ring-emerald-700/40' : 'bg-rose-500/10 ring-rose-700/40'
+        className={`rounded-2xl p-7 text-center ring-1 shadow-panel ${
+          met ? 'bg-success/10 ring-success/30' : 'bg-danger/10 ring-danger/30'
         }`}
       >
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-950/50 ring-1 ring-slate-700">
-          {met ? <CheckCircle2 className="h-8 w-8 text-emerald-400" /> : <AlertTriangle className="h-8 w-8 text-rose-400" />}
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-ink-950/50 ring-1 ring-ink-700">
+          {met ? <CheckCircle2 className="h-8 w-8 text-success" /> : <AlertTriangle className="h-8 w-8 text-danger" />}
         </div>
-        <h1 className="text-2xl font-bold text-white">{met ? t.minWasReached : t.minWasNotReached}</h1>
+        <h1 className="font-display text-2xl font-bold text-white">{met ? t.minWasReached : t.minWasNotReached}</h1>
         <p className="mt-3 text-sm text-slate-400">{met ? t.minReachedExplain : t.minNotReachedExplain}</p>
       </div>
 
-      <div className="mt-5 rounded-2xl bg-slate-900/60 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-slate-800">
+      <div className="mt-5 rounded-xl bg-ink-900 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-ink-700 shadow-panel">
         <div className="mb-1 flex items-center gap-2 font-semibold text-slate-300">
           <Users className="h-4 w-4" /> {t.activePlayers}
         </div>
@@ -134,7 +134,7 @@ export function PublicAnnouncementScreen({
             .map((p) => (
               <span
                 key={p.id}
-                className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200"
+                className="rounded-md bg-ink-800 px-3 py-1 text-xs font-medium text-slate-200"
               >
                 <PlayerName name={p.name} joinedMidGame={p.joinedMidGame} />
               </span>
@@ -156,14 +156,14 @@ export function DiscussionScreen({ onContinue }: { onContinue: () => void }) {
   return (
     <ScreenShell>
       <div className="mb-6 mt-2 text-center">
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-500/10 ring-1 ring-indigo-600/30">
-          <MessageCircle className="h-8 w-8 text-indigo-300" />
+        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/30">
+          <MessageCircle className="h-8 w-8 text-gold-light" />
         </div>
         <Pill tone="neutral">{t.discussionPhase}</Pill>
-        <h1 className="mt-4 text-2xl font-bold text-white">{t.talkItOut}</h1>
+        <h1 className="font-display mt-4 text-3xl font-bold text-white">{t.talkItOut}</h1>
       </div>
 
-      <div className="space-y-3 rounded-2xl bg-slate-900/60 p-5 text-sm leading-relaxed text-slate-300 ring-1 ring-slate-800">
+      <div className="space-y-3 rounded-2xl bg-ink-900 p-5 text-sm leading-relaxed text-slate-300 ring-1 ring-ink-700 shadow-panel">
         <p>{t.putDeviceDown}</p>
         <ul className="list-disc space-y-1 pl-5 text-slate-400">
           <li>{t.discussClaim}</li>

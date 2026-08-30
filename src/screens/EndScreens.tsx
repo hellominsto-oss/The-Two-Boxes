@@ -26,11 +26,11 @@ export function AccusationResultScreen({
       </div>
 
       {!hasVerdicts && zeroBalanceEliminated.length === 0 ? (
-        <div className="rounded-3xl bg-slate-900/60 p-7 text-center ring-1 ring-slate-800">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800">
+        <div className="rounded-2xl bg-ink-900 p-7 text-center ring-1 ring-ink-700 shadow-panel">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-ink-800">
             <Gavel className="h-8 w-8 text-slate-500" />
           </div>
-          <h1 className="text-xl font-bold text-white">{t.noOneAccused}</h1>
+          <h1 className="font-display text-xl font-bold text-white">{t.noOneAccused}</h1>
           <p className="mt-2 text-sm text-slate-400">{t.noOneAccusedExplain}</p>
         </div>
       ) : (
@@ -45,9 +45,9 @@ export function AccusationResultScreen({
             return (
               <div
                 key={id}
-                className="rounded-2xl bg-slate-900/60 p-5 text-center ring-1 ring-slate-800"
+                className="rounded-2xl bg-ink-900 p-5 text-center ring-1 ring-ink-700 shadow-panel"
               >
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-ink-800">
                   <Skull className="h-6 w-6 text-slate-500" />
                 </div>
                 <h2 className="text-base font-bold text-white">
@@ -60,7 +60,7 @@ export function AccusationResultScreen({
         </div>
       )}
 
-      <div className="mt-5 rounded-2xl bg-slate-900/60 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-slate-800">
+      <div className="mt-5 rounded-xl bg-ink-900 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-ink-700 shadow-panel">
         <div className="mb-2 font-semibold text-slate-300">
           {anyEliminated ? t.activePlayersRemaining : t.activePlayers}
         </div>
@@ -68,7 +68,7 @@ export function AccusationResultScreen({
           {state.players
             .filter((p) => p.active)
             .map((p) => (
-              <span key={p.id} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200">
+              <span key={p.id} className="rounded-md bg-ink-800 px-3 py-1 text-xs font-medium text-slate-200">
                 <PlayerName name={p.name} joinedMidGame={p.joinedMidGame} />
               </span>
             ))}
@@ -91,14 +91,14 @@ function VerdictCard({ verdict, name, cost }: { verdict: AccusationVerdict; name
       ? t.violationExplainCapped(name, verdict.rewardPerAccuser)
       : t.violationExplain(name, verdict.rewardPerAccuser);
     return (
-      <div className="rounded-2xl bg-rose-500/10 p-5 ring-1 ring-rose-700/40">
+      <div className="rounded-2xl bg-danger/10 p-5 ring-1 ring-danger/30 shadow-panel">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-600/20 ring-1 ring-rose-600/40">
-            <AlertTriangle className="h-6 w-6 text-rose-400" />
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-danger/15 ring-1 ring-danger/40">
+            <AlertTriangle className="h-6 w-6 text-danger" />
           </div>
           <div>
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-rose-300">{t.violationConfirmed}</div>
-            <h2 className="text-lg font-bold leading-tight text-white">{name}</h2>
+            <div className="text-[11px] font-semibold uppercase tracking-wide text-danger">{t.violationConfirmed}</div>
+            <h2 className="font-display text-lg font-bold leading-tight text-white">{name}</h2>
           </div>
         </div>
         <p className="mt-3 text-sm leading-relaxed text-slate-300">{explain}</p>
@@ -106,14 +106,14 @@ function VerdictCard({ verdict, name, cost }: { verdict: AccusationVerdict; name
     );
   }
   return (
-    <div className="rounded-2xl bg-emerald-500/10 p-5 ring-1 ring-emerald-700/40">
+    <div className="rounded-2xl bg-success/10 p-5 ring-1 ring-success/30 shadow-panel">
       <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-600/20 ring-1 ring-emerald-600/40">
-          <ShieldCheck className="h-6 w-6 text-emerald-400" />
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-success/15 ring-1 ring-success/40">
+          <ShieldCheck className="h-6 w-6 text-success" />
         </div>
         <div>
-          <div className="text-[11px] font-semibold uppercase tracking-wide text-emerald-300">{t.wrongAccusation}</div>
-          <h2 className="text-lg font-bold leading-tight text-white">{name}</h2>
+          <div className="text-[11px] font-semibold uppercase tracking-wide text-success">{t.wrongAccusation}</div>
+          <h2 className="font-display text-lg font-bold leading-tight text-white">{name}</h2>
         </div>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-slate-300">{t.wrongAccusationExplain(name, verdict.rewardPerAccuser)}</p>
@@ -139,20 +139,20 @@ export function RoundEndDecisionScreen({
   return (
     <ScreenShell>
       <div className="mb-6 mt-2 text-center">
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-500/15 ring-1 ring-sky-600/40">
-          <Users className="h-8 w-8 text-sky-400" />
+        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/30">
+          <Users className="h-8 w-8 text-gold-light" />
         </div>
-        <h1 className="text-2xl font-bold text-white">{t.roundEndTitle}</h1>
+        <h1 className="font-display text-2xl font-bold text-white">{t.roundEndTitle}</h1>
         <p className="mt-2 text-sm text-slate-400">{t.roundEndExplain}</p>
       </div>
 
-      <div className="mt-5 rounded-2xl bg-slate-900/60 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-slate-800">
+      <div className="mt-5 rounded-xl bg-ink-900 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-ink-700 shadow-panel">
         <div className="mb-2 font-semibold text-slate-300">{t.activePlayersRemaining}</div>
         <div className="flex flex-wrap gap-2">
           {state.players
             .filter((p) => p.active)
             .map((p) => (
-              <span key={p.id} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200">
+              <span key={p.id} className="rounded-md bg-ink-800 px-3 py-1 text-xs font-medium text-slate-200">
                 <PlayerName name={p.name} joinedMidGame={p.joinedMidGame} />
               </span>
             ))}
@@ -160,7 +160,7 @@ export function RoundEndDecisionScreen({
       </div>
 
       {!canAdd && (
-        <p className="mt-4 text-center text-xs text-amber-400">{t.cannotAddMaxPlayers}</p>
+        <p className="mt-4 text-center text-xs text-warning">{t.cannotAddMaxPlayers}</p>
       )}
 
       <div className="mt-auto space-y-3 pt-6">
@@ -194,20 +194,20 @@ export function TwoPlayerDecisionScreen({
   return (
     <ScreenShell>
       <div className="mb-6 mt-2 text-center">
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-500/15 ring-1 ring-sky-600/40">
-          <Users className="h-8 w-8 text-sky-400" />
+        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/30">
+          <Users className="h-8 w-8 text-gold-light" />
         </div>
-        <h1 className="text-2xl font-bold text-white">{t.twoPlayersRemain}</h1>
+        <h1 className="font-display text-2xl font-bold text-white">{t.twoPlayersRemain}</h1>
         <p className="mt-2 text-sm text-slate-400">{t.twoPlayersExplain}</p>
       </div>
 
-      <div className="mt-5 rounded-2xl bg-slate-900/60 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-slate-800">
+      <div className="mt-5 rounded-xl bg-ink-900 p-4 text-xs leading-relaxed text-slate-400 ring-1 ring-ink-700 shadow-panel">
         <div className="mb-2 font-semibold text-slate-300">{t.activePlayersRemaining}</div>
         <div className="flex flex-wrap gap-2">
           {state.players
             .filter((p) => p.active)
             .map((p) => (
-              <span key={p.id} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200">
+              <span key={p.id} className="rounded-md bg-ink-800 px-3 py-1 text-xs font-medium text-slate-200">
                 <PlayerName name={p.name} joinedMidGame={p.joinedMidGame} />
               </span>
             ))}
@@ -215,7 +215,7 @@ export function TwoPlayerDecisionScreen({
       </div>
 
       {!canAdd && (
-        <p className="mt-4 text-center text-xs text-amber-400">{t.cannotAddMaxPlayers}</p>
+        <p className="mt-4 text-center text-xs text-warning">{t.cannotAddMaxPlayers}</p>
       )}
 
       <div className="mt-auto space-y-3 pt-6">
@@ -266,10 +266,10 @@ export function AddPlayerScreen({
   return (
     <ScreenShell>
       <div className="mb-6 mt-2 text-center">
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600/20 ring-1 ring-emerald-600/40">
-          <UserPlus className="h-8 w-8 text-emerald-400" />
+        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-success/15 ring-1 ring-success/40">
+          <UserPlus className="h-8 w-8 text-success" />
         </div>
-        <h1 className="text-2xl font-bold text-white">{t.addPlayerTitle}</h1>
+        <h1 className="font-display text-2xl font-bold text-white">{t.addPlayerTitle}</h1>
         <p className="mt-2 text-sm text-slate-400">{t.addPlayerExplain}</p>
       </div>
 
@@ -284,11 +284,11 @@ export function AddPlayerScreen({
             }}
             maxLength={14}
             placeholder={t.playerNamePlaceholder(state.nextPlayerId)}
-            className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-emerald-600 focus:outline-none"
+            className="w-full rounded-lg border border-ink-700 bg-ink-950/60 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-gold focus:outline-none"
             onKeyDown={(e) => e.key === 'Enter' && submit()}
           />
         </div>
-        {error && <p className="text-xs text-rose-400">{error}</p>}
+        {error && <p className="text-xs text-danger">{error}</p>}
       </div>
 
       <div className="mt-auto space-y-3 pt-6">
@@ -316,20 +316,20 @@ export function GameOverScreen({
   return (
     <ScreenShell>
       <div className="mb-6 mt-2 text-center">
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/15 ring-1 ring-amber-600/40">
-          <Trophy className="h-8 w-8 text-amber-400" />
+        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-gold/15 ring-1 ring-gold/40 shadow-panel-gold">
+          <Trophy className="h-8 w-8 text-gold-light" />
         </div>
         <Pill tone="warn">{t.gameOver}</Pill>
-        <h1 className="mt-3 text-2xl font-bold text-white">{t.finalResults}</h1>
+        <h1 className="font-display mt-3 text-3xl font-bold text-white">{t.finalResults}</h1>
       </div>
 
       {winner && (
-        <div className="mb-5 rounded-3xl bg-gradient-to-b from-amber-500/15 to-slate-900/40 p-5 text-center ring-1 ring-amber-700/30">
-          <div className="flex items-center justify-center gap-2 text-amber-300">
+        <div className="mb-5 rounded-2xl bg-gradient-to-b from-gold/15 to-ink-900/40 p-5 text-center ring-1 ring-gold/30 shadow-panel-gold">
+          <div className="flex items-center justify-center gap-2 text-gold-light">
             <Crown className="h-5 w-5" />
             <span className="text-xs font-semibold uppercase tracking-wide">{t.winner}</span>
           </div>
-          <div className="mt-1 text-2xl font-bold text-white">
+          <div className="font-display mt-1 text-2xl font-bold text-white">
             <PlayerName name={winner.name} joinedMidGame={state.players.find((p) => p.id === winner.id)?.joinedMidGame} />
           </div>
           <CoinAmount amount={winner.balance} className="text-xl" />
@@ -342,13 +342,13 @@ export function GameOverScreen({
           return (
             <div
               key={s.id}
-              className={`flex items-center gap-3 rounded-2xl px-4 py-3 ring-1 ${
-                s.active ? 'bg-slate-900/60 ring-slate-800' : 'bg-slate-950/40 ring-slate-900'
+              className={`flex items-center gap-3 rounded-xl px-4 py-3 ring-1 shadow-panel ${
+                s.active ? 'bg-ink-900 ring-ink-700' : 'bg-ink-950/40 ring-ink-800'
               }`}
             >
               <span
                 className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
-                  i === 0 ? 'bg-amber-500/20 text-amber-300 ring-1 ring-amber-600/40' : 'bg-slate-800 text-slate-400'
+                  i === 0 ? 'bg-gold/15 text-gold-light ring-1 ring-gold/40' : 'bg-ink-800 text-slate-400'
                 }`}
               >
                 {i + 1}
