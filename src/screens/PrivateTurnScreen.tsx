@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { PiggyBank, Shield, Coins, Check } from 'lucide-react';
-import { PrimaryButton, ScreenShell, Pill, CoinAmount } from '@/components/ui';
+import { PiggyBank, Shield, Check } from 'lucide-react';
+import { PrimaryButton, ScreenShell, Pill, CoinAmount, Coin } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { GameState, Player, Contribution } from '@/game/engine';
 import { MAX_ROUNDS } from '@/game/engine';
@@ -115,7 +115,7 @@ export function PrivateTurnScreen({
 
       <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-950/60 px-4 py-3 ring-1 ring-slate-800">
         <span className="flex items-center gap-2 text-xs text-slate-400">
-          <Coins className="h-4 w-4 text-amber-400" /> {t.remainingToPlace}
+          <Coin face="wealth" className="h-4 w-4" /> {t.remainingToPlace}
         </span>
         <span
           className={`font-mono text-lg font-bold tabular-nums ${leftover === 0 ? 'text-emerald-400' : 'text-rose-400'}`}

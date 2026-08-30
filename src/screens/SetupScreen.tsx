@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Coins, Users, Plus, Minus, ChevronRight, CircleHelp as HelpCircle } from 'lucide-react';
-import { PrimaryButton, GhostButton, ScreenShell } from '@/components/ui';
+import { Users, Plus, Minus, ChevronRight, CircleHelp as HelpCircle } from 'lucide-react';
+import { PrimaryButton, GhostButton, ScreenShell, Coin } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { STARTING_COINS, Player } from '@/game/engine';
 import { HowToPlayScreen } from '@/screens/HowToPlayScreen';
@@ -60,7 +60,7 @@ export function SetupScreen({
     <ScreenShell>
       <div className="mb-6 mt-2 text-center">
         <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600/20 ring-1 ring-emerald-600/40">
-          <Coins className="h-8 w-8 text-emerald-400" />
+          <Coin face="wealth" className="h-12 w-12" />
         </div>
         <h1 className="text-3xl font-bold tracking-tight text-white">{t.appName}</h1>
         <p className="mt-2 text-sm leading-relaxed text-slate-400">{t.appTagline}</p>

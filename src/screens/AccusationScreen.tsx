@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Gavel, ShieldX, UserX, Check, Coins } from 'lucide-react';
-import { PrimaryButton, ScreenShell, Pill, CoinAmount, PlayerName } from '@/components/ui';
+import { Gavel, ShieldX, UserX, Check } from 'lucide-react';
+import { PrimaryButton, ScreenShell, Pill, CoinAmount, PlayerName, Coin } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { GameState, Player, Accusation, MAX_ROUNDS } from '@/game/engine';
 
@@ -48,7 +48,7 @@ export function AccusationScreen({
       <div className="mt-4 rounded-2xl bg-amber-500/10 p-4 ring-1 ring-amber-700/30">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/20 ring-1 ring-amber-600/40">
-            <Coins className="h-5 w-5 text-amber-400" />
+            <Coin face="deception" className="h-8 w-8" />
           </div>
           <div className="flex-1">
             <div className="text-[11px] font-semibold uppercase tracking-wide text-amber-300/80">{t.accusationCostLabel}</div>

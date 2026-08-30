@@ -1,6 +1,5 @@
 import {
   Trophy,
-  Coins,
   PiggyBank,
   Shield,
   Lock,
@@ -14,7 +13,7 @@ import {
   Crown,
   ArrowLeft,
 } from 'lucide-react';
-import { GhostButton, ScreenShell, Pill } from '@/components/ui';
+import { GhostButton, ScreenShell, Pill, Coin } from '@/components/ui';
 import { useI18n } from '@/i18n';
 
 export function HowToPlayScreen({ onBack }: { onBack: () => void }) {
@@ -34,7 +33,7 @@ export function HowToPlayScreen({ onBack }: { onBack: () => void }) {
           <p>{t.howToPlayGoalText}</p>
         </Section>
 
-        <Section icon={<Coins className="h-5 w-5" />} tone="amber" title={t.howToPlayStarting}>
+        <Section icon={<Coin face="wealth" className="h-5 w-5" />} tone="amber" title={t.howToPlayStarting}>
           <p>{t.howToPlayStartingText}</p>
         </Section>
 
@@ -50,7 +49,7 @@ export function HowToPlayScreen({ onBack }: { onBack: () => void }) {
           </div>
         </Section>
 
-        <Section icon={<Coins className="h-5 w-5" />} tone="amber" title={t.howToPlayMinDeposit}>
+        <Section icon={<Coin face="deception" className="h-5 w-5" />} tone="amber" title={t.howToPlayMinDeposit}>
           <p>{t.howToPlayMinDepositText}</p>
         </Section>
 

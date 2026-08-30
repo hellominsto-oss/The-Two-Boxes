@@ -46,6 +46,25 @@ export function GhostButton({
   );
 }
 
+export function Coin({
+  face = 'wealth',
+  className = '',
+}: {
+  face?: 'wealth' | 'deception';
+  className?: string;
+}) {
+  const src = face === 'wealth' ? '/assets/coin/1.png' : '/assets/coin/2.png';
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden="true"
+      draggable={false}
+      className={`pointer-events-none select-none object-contain ${className}`}
+    />
+  );
+}
+
 export function CoinAmount({ amount, className = '' }: { amount: number; className?: string }) {
   const { t } = useI18n();
   return (

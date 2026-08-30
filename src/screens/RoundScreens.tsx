@@ -1,5 +1,5 @@
-import { Coins, HandCoins, Lock, ShieldCheck } from 'lucide-react';
-import { PrimaryButton, ScreenShell, Pill, PlayerName } from '@/components/ui';
+import { HandCoins, Lock, ShieldCheck } from 'lucide-react';
+import { PrimaryButton, ScreenShell, Pill, PlayerName, Coin } from '@/components/ui';
 import { useI18n } from '@/i18n';
 import { GameState, Player } from '@/game/engine';
 import { MAX_ROUNDS } from '@/game/engine';
@@ -23,7 +23,7 @@ export function RoundIntroScreen({
 
       <div className="rounded-3xl bg-gradient-to-b from-amber-500/10 to-slate-900/40 p-6 text-center ring-1 ring-amber-700/30">
         <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/15 ring-1 ring-amber-600/40">
-          <Coins className="h-7 w-7 text-amber-400" />
+          <Coin face="wealth" className="h-11 w-11" />
         </div>
         <div className="text-xs uppercase tracking-wide text-amber-300/80">{t.requiredMinSavings}</div>
         <div className="mt-1 text-5xl font-bold tabular-nums text-amber-300">{state.minimum}</div>
